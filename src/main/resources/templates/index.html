@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f2">
+    <title>Ciclo Verde | Sua nota vale desconto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="/" aria-label="Ciclo Verde - início">
+        <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M19.5 4.5C12 4.5 6 6.5 6 12.5c0 3 2 5 4.5 5 6 0 8-7 9-13Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.5 20c1.5-4 4.5-7 9-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+        </span>
+        <span class="brand-copy">
+            <strong>Ciclo Verde</strong>
+            <span>BENEFÍCIOS SUSTENTÁVEIS</span>
+        </span>
+    </a>
+    <div class="security-pill">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span>Seus dados estão protegidos</span>
+    </div>
+</header>
+
+<main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="m11.4 2 .8 4.1L16 8l-3.8 1.8-.8 4.2-.8-4.2L7 8l3.6-1.9.8-4.1Z" fill="currentColor"/>
+                <path d="m4.5 11 .5 2.4 2 1-2 1-.5 2.6-.5-2.6-2-1 2-1 .5-2.4Z" fill="currentColor"/>
+            </svg>
+            <span>TRANSFORME CONSUMO EM IMPACTO POSITIVO</span>
+        </div>
+        <h1 id="page-title">Sua nota vale <span>desconto.</span></h1>
+        <p>Envie sua nota fiscal, valide sua compra e receba <strong>5% do valor</strong> para abater na sua conta de energia ou água.</p>
+    </section>
+
+    <section class="content-grid" aria-label="Envio de nota fiscal">
+        <article class="upload-card">
+            <div class="card-heading">
+                <div>
+                    <span class="step-label">ETAPA 1 DE 2</span>
+                    <h2>Envie sua nota fiscal</h2>
+                </div>
+                <span class="demo-badge">
+                    <span class="badge-dot"></span>
+                    Envio seguro
+                </span>
+            </div>
+
+            <div class="upload-content">
+                <div class="drop-area">
+                    <div class="upload-icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M16 21V8m0 0-5 5m5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.5 20.5v3A2.5 2.5 0 0 0 11 26h10a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Arraste sua nota fiscal até aqui</h3>
+                    <p>ou escolha um arquivo do seu dispositivo</p>
+                    <span class="select-file-button">Selecionar arquivo</span>
+                    <span class="file-hint">Formatos aceitos: JPG, PNG ou PDF <span aria-hidden="true">·</span> até 10 MB</span>
+                </div>
+                <div class="upload-note">
+                    <span class="note-icon" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="7.25" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M10 6.5v4l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span>Leva menos de <strong>1 minuto</strong> para enviar</span>
+                </div>
+            </div>
+        </article>
+
+        <aside class="benefit-card" aria-labelledby="benefit-title">
+            <div class="benefit-top">
+                <div class="shield-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                        <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="dark-eyebrow">BENEFÍCIO SUSTENTÁVEL</span>
+                <h2 id="benefit-title">Sua compra faz a diferença.</h2>
+                <p>Uma atitude simples que ajuda você e o planeta.</p>
+            </div>
+            <div class="benefit-highlight">
+                <span class="discount-value">5<small>%</small></span>
+                <div>
+                    <strong>de volta para você</strong>
+                    <span>em créditos na sua conta</span>
+                </div>
+            </div>
+            <ul class="benefit-list">
+                <li>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                    <span>Envie sua nota de compra</span>
+                </li>
+                <li>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                    <span>Aguarde a validação segura</span>
+                </li>
+                <li>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                    <span>Receba seu benefício</span>
+                </li>
+            </ul>
+        </aside>
+    </section>
+
+    <section class="trust-row" aria-label="Sobre o Ciclo Verde">
+        <div class="trust-item">
+            <span class="trust-icon leaf-icon" aria-hidden="true">↗</span>
+            <span><strong>Consumo consciente</strong><small>Um futuro melhor começa com você</small></span>
+        </div>
+        <span class="trust-divider" aria-hidden="true"></span>
+        <div class="trust-item">
+            <span class="trust-icon lock-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                    <rect x="4" y="8" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M7 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </span>
+            <span><strong>Seus dados protegidos</strong><small>Privacidade em cada etapa</small></span>
+        </div>
+        <span class="trust-divider" aria-hidden="true"></span>
+        <div class="trust-item">
+            <span class="trust-icon heart-icon" aria-hidden="true">♡</span>
+            <span><strong>Benefício de verdade</strong><small>Economia que volta para você</small></span>
+        </div>
+    </section>
+</main>
+</body>
+</html>
