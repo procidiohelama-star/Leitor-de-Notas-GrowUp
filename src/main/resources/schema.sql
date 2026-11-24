@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS notas_processadas (
+    chave_acesso VARCHAR(44) PRIMARY KEY,
+    enviada_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

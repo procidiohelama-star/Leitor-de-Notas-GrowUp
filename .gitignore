@@ -1,0 +1,5 @@
+/target/
+/growup.mv.db
+/growup.trace.db
+/growup.lock.db
+/growup.temp.db

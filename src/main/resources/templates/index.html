@@ -43,7 +43,7 @@
             <span>TRANSFORME CONSUMO EM IMPACTO POSITIVO</span>
         </div>
         <h1 id="page-title">Sua nota vale <span>desconto.</span></h1>
-        <p>Envie sua nota fiscal, valide sua compra e receba <strong>5% do valor</strong> para abater na sua conta de energia ou água.</p>
+        <p>Envie sua nota fiscal. Após a validação, você poderá receber <strong>5% do valor</strong> para abater na sua conta de energia ou água.</p>
     </section>
 
     <section class="content-grid" aria-label="Envio de nota fiscal">
@@ -59,8 +59,8 @@
                 </span>
             </div>
 
-            <div class="upload-content">
-                <div class="drop-area">
+            <form class="upload-content" id="invoice-form">
+                <div class="drop-area" id="drop-area">
                     <div class="upload-icon" aria-hidden="true">
                         <svg viewBox="0 0 32 32" fill="none">
                             <path d="M16 21V8m0 0-5 5m5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,9 +69,27 @@
                     </div>
                     <h3>Arraste sua nota fiscal até aqui</h3>
                     <p>ou escolha um arquivo do seu dispositivo</p>
-                    <span class="select-file-button">Selecionar arquivo</span>
-                    <span class="file-hint">Formatos aceitos: JPG, PNG ou PDF <span aria-hidden="true">·</span> até 10 MB</span>
+                    <label class="select-file-button" for="invoice-file">Selecionar arquivo</label>
+                    <input id="invoice-file" name="arquivo" type="file" accept="image/jpeg,image/png" required>
+                    <span class="file-name" id="file-name">Formatos aceitos: JPG ou PNG · até 10 MB</span>
                 </div>
+                <label class="cpf-field" for="consumer-cpf">CPF do consumidor <span>(se constar na nota)</span></label>
+                <input id="consumer-cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off"
+                       placeholder="000.000.000-00" maxlength="14">
+                <button class="submit-button" id="submit-invoice" type="submit">Analisar nota fiscal</button>
+                <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+                <section class="analysis-panel" id="analysis-panel" aria-live="polite" hidden>
+                    <div class="analysis-heading">
+                        <strong id="analysis-title">Verificando regras</strong>
+                        <span id="progress-value">0%</span>
+                    </div>
+                    <div class="progress-track" role="progressbar" aria-label="Progresso da validação"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track">
+                        <span class="progress-fill" id="progress-fill"></span>
+                    </div>
+                    <ol class="rule-list" id="rule-list"></ol>
+                    <div class="analysis-result" id="analysis-result" hidden></div>
+                </section>
                 <div class="upload-note">
                     <span class="note-icon" aria-hidden="true">
                         <svg viewBox="0 0 20 20" fill="none">
@@ -81,7 +99,7 @@
                     </span>
                     <span>Leva menos de <strong>1 minuto</strong> para enviar</span>
                 </div>
-            </div>
+            </form>
         </article>
 
         <aside class="benefit-card" aria-labelledby="benefit-title">
@@ -142,5 +160,6 @@
         </div>
     </section>
 </main>
+<script th:src="@{/js/invoice-upload.js}" src="/js/invoice-upload.js" defer></script>
 </body>
 </html>
