@@ -11,6 +11,10 @@ const progressTrack = document.querySelector("#progress-track");
 const progressValue = document.querySelector("#progress-value");
 const analysisTitle = document.querySelector("#analysis-title");
 const analysisResult = document.querySelector("#analysis-result");
+const discountValue = document.querySelector("#discount-value");
+const discountLabel = document.querySelector("#discount-label");
+const discountDetails = document.querySelector("#discount-details");
+const benefitMessage = document.querySelector("#benefit-message");
 
 fileInput.addEventListener("change", () => showSelectedFile(fileInput.files[0]));
 
@@ -42,6 +46,7 @@ form.addEventListener("submit", async (event) => {
     message.textContent = "";
     analysisPanel.hidden = true;
     analysisResult.hidden = true;
+    resetBenefitSummary();
 
     const file = fileInput.files[0];
     if (!file) {
@@ -119,16 +124,40 @@ async function showAnalysis(result) {
         await new Promise((resolve) => window.setTimeout(resolve, 160));
     }
 
+    updateBenefitSummary(result);
     const hasAmount = result.valorNota !== null && result.descontoEstimado !== null;
-    const amountText = hasAmount
-        ? `Nota: ${formatCurrency(result.valorNota)} · 5% estimados: ${formatCurrency(result.descontoEstimado)}. `
-        : "Não foi possível identificar o valor total da nota. ";
+    const amountNotice = hasAmount ? "" : "Não foi possível identificar o valor total da nota. ";
     analysisResult.className = result.beneficioLiberado ? "analysis-result result-approved" : "analysis-result result-pending";
     analysisResult.textContent = result.beneficioLiberado
-        ? `${amountText}Benefício liberado.`
-        : `${amountText}Benefício não liberado: há regras pendentes ou reprovadas. O cálculo é apenas uma estimativa até a validação oficial.`;
+        ? "Benefício liberado após a validação."
+        : `${amountNotice}Benefício não liberado: há regras pendentes ou reprovadas. O valor exibido é apenas uma estimativa até a validação oficial.`;
     if (result.aviso) analysisResult.textContent += ` ${result.aviso}`;
     analysisResult.hidden = false;
+}
+
+function resetBenefitSummary() {
+    discountValue.textContent = "5%";
+    discountValue.classList.remove("discount-value-amount");
+    discountLabel.textContent = "de volta para você";
+    discountDetails.textContent = "Envie uma nota para calcular o valor";
+    benefitMessage.textContent = "Obrigado por participar do Ciclo Verde! Continue ajudando a cuidar do meio ambiente e inspirando um futuro mais sustentável.";
+}
+
+function updateBenefitSummary(result) {
+    const hasAmount = result.valorNota !== null && result.descontoEstimado !== null;
+    if (!hasAmount) {
+        resetBenefitSummary();
+        return;
+    }
+
+    discountValue.textContent = formatCurrency(result.descontoEstimado);
+    discountValue.classList.add("discount-value-amount");
+    discountLabel.textContent = result.beneficioLiberado ? "Desconto aprovado" : "Desconto estimado";
+    discountDetails.textContent = `5% da nota de ${formatCurrency(result.valorNota)}`;
+    const formattedDiscount = formatCurrency(result.descontoEstimado);
+    benefitMessage.textContent = result.beneficioLiberado
+        ? `Você receberá um desconto de ${formattedDiscount}! Obrigado por participar!`
+        : `Você poderá receber um desconto estimado de ${formattedDiscount} após a validação. Obrigado por participar! Continue ajudando a cuidar do meio ambiente.`;
 }
 
 function statusIcon(status) {

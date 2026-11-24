@@ -564,11 +564,14 @@ p {
     line-height: 1;
 }
 
-.discount-value small {
-    font-size: 23px;
+.discount-value-amount {
+    font-size: clamp(22px, 2.5vw, 30px);
+    letter-spacing: -1px;
+    white-space: nowrap;
 }
 
 .benefit-highlight div {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -582,6 +585,17 @@ p {
 .benefit-highlight div span {
     color: #b4c8bd;
     font-size: 10px;
+}
+
+.benefit-message {
+    margin: 13px 0 0;
+    padding: 11px 12px;
+    border: 1px solid rgba(198, 232, 52, .16);
+    border-radius: 12px;
+    background: rgba(5, 37, 27, .22);
+    color: #d3e0d9;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
 .benefit-list {
